@@ -100,21 +100,25 @@ html-dir: $(PKG).texi
 	@texi2pdf --clean $< > /dev/null
 
 DOMAIN         ?= magit.vc
-CFRONT_DIST    ?= E2LUHBKU1FBV02
 PUBLISH_PATH   ?= /manual/
-PUBLISH_BUCKET ?= s3://$(DOMAIN)
-PUBLISH_TARGET ?= $(PUBLISH_BUCKET)$(PUBLISH_PATH)
+
+S3_BUCKET      ?= s3://$(DOMAIN)
+PUBLISH_TARGET  = $(S3_BUCKET)$(PUBLISH_PATH)
+
+CFRONT_DIST    ?= E2LUHBKU1FBV02
+CFRONT_PATHS    = $(PKG).html $(PKG).pdf $(PKG)/*
+
+comma := ,
+empty :=
+space := $(empty) $(empty)
 
 publish: html html-dir pdf
 	@aws s3 cp $(PKG).html $(PUBLISH_TARGET)
-	@aws s3 cp $(PKG).pdf $(PUBLISH_TARGET)
-	@aws s3 sync $(PKG) $(PUBLISH_TARGET)$(PKG)/
+	@aws s3 cp $(PKG).pdf  $(PUBLISH_TARGET)
+	@aws s3 sync $(PKG)    $(PUBLISH_TARGET)$(PKG)/
 	@printf "Generating CDN invalidation\n"
-	@aws cloudfront create-invalidation \
-	--distribution-id $(CFRONT_DIST) --paths "\
-/manual/$(PKG).html,\
-/manual/$(PKG).pdf,\
-/manual/$(PKG)/*" > /dev/null
+	@aws cloudfront create-invalidation --distribution-id $(CFRONT_DIST) --paths \
+	"$(subst $(space),$(comma),$(addprefix $(PUBLISH_PATH),$(CFRONT_PATHS)))" > /dev/null
 
 CLEAN  = $(ELCS) $(PKG)-autoloads.el $(PKG).info dir
 CLEAN += $(PKG) $(PKG).html $(PKG).pdf
