@@ -22,7 +22,7 @@ endif
 
 INSTALL_INFO     ?= $(shell command -v ginstall-info || printf install-info)
 MAKEINFO         ?= makeinfo
-MANUAL_HTML_ARGS ?= --css-ref /assets/the.css
+MANUAL_HTML_ARGS ?= --css-ref /assets/page.css
 
 .PHONY: AUTHORS.md
 
@@ -89,10 +89,12 @@ dir: $(PKG).info
 %.html: %.texi
 	@printf "Generating $@\n"
 	@$(MAKEINFO) --html --no-split $(MANUAL_HTML_ARGS) $<
+	@./.fixup-html.sh $@
 
 html-dir: $(PKG).texi
 	@printf "Generating $(PKG)/*.html\n"
 	@$(MAKEINFO) --html $(MANUAL_HTML_ARGS) $<
+	@./.fixup-html.sh $(PKG)
 
 %.pdf: %.texi
 	@printf "Generating $@\n"
