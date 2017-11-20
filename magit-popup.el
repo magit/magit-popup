@@ -12,26 +12,26 @@
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
 
-;; Package-Requires: ((emacs "24.4") (async "20170823") (dash "20170810"))
+;; Package-Requires: ((emacs "24.4") (async "1.9.2") (dash "2.13.0"))
 ;; Keywords: bindings
-;; Homepage: https://github.com/magit/magit
+;; Homepage: https://github.com/magit/magit-popup
 
-;; Magit is free software; you can redistribute it and/or modify it
-;; under the terms of the GNU General Public License as published by
+;; Magit-Popup is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 3, or (at your option)
 ;; any later version.
 ;;
-;; Magit is distributed in the hope that it will be useful, but WITHOUT
-;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
-;; License for more details.
+;; Magit-Popup is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
 ;;
 ;; You should have received a copy of the GNU General Public License
-;; along with Magit.  If not, see http://www.gnu.org/licenses.
+;; along with Magit-Popup.  If not, see http://www.gnu.org/licenses.
 
 ;;; Commentary:
 
-;; This library implements a generic interface for toggling switches
+;; This package implements a generic interface for toggling switches
 ;; and setting options and then invoking an Emacs command which does
 ;; something with these arguments.  The prototypical use is for the
 ;; command to call an external process, passing on the arguments as
@@ -1367,4 +1367,7 @@ variable whose value may be used as a default."
 (font-lock-add-keywords 'emacs-lisp-mode magit-popup-font-lock-keywords)
 
 (provide 'magit-popup)
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
 ;;; magit-popup.el ends here
