@@ -38,7 +38,6 @@ help:
 	$(info make html         - generate html manual file)
 	$(info make html-dir     - generate html manual directory)
 	$(info make pdf          - generate pdf manual)
-	$(info make preview      - preview html and pdf manuals)
 	$(info make publish      - publish html and pdf manuals)
 	$(info make clean        - remove most generated files)
 	@printf "\n"
@@ -104,14 +103,7 @@ DOMAIN         ?= magit.vc
 CFRONT_DIST    ?= E2LUHBKU1FBV02
 PUBLISH_PATH   ?= /manual/
 PUBLISH_BUCKET ?= s3://$(DOMAIN)
-PREVIEW_BUCKET ?= s3://preview.$(DOMAIN)
 PUBLISH_TARGET ?= $(PUBLISH_BUCKET)$(PUBLISH_PATH)
-PREVIEW_TARGET ?= $(PREVIEW_BUCKET)$(PUBLISH_PATH)
-
-preview: html html-dir pdf
-	@aws s3 cp $(PKG).html $(PREVIEW_TARGET)
-	@aws s3 cp $(PKG).pdf $(PREVIEW_TARGET)
-	@aws s3 sync $(PKG) $(PREVIEW_TARGET)$(PKG)/
 
 publish: html html-dir pdf
 	@aws s3 cp $(PKG).html $(PUBLISH_TARGET)
