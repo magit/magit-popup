@@ -26,8 +26,6 @@ INSTALL_INFO     ?= $(shell command -v ginstall-info || printf install-info)
 MAKEINFO         ?= makeinfo
 MANUAL_HTML_ARGS ?= --css-ref /assets/page.css
 
-.PHONY: AUTHORS.md
-
 all: lisp info
 doc: info html html-dir pdf
 
@@ -139,12 +137,6 @@ CLEAN += $(PKG) $(PKG).html $(PKG).pdf
 clean:
 	@printf "Cleaning...\n"
 	@rm -rf $(CLEAN)
-
-authors: AUTHORS.md
-
-AUTHORS.md:
-	@printf "Authors\n=======\n\n" > $@
-	@git log --pretty=format:'- %aN <%aE>' | sort -u >> $@
 
 define LOADDEFS_TMPL
 ;;; $(PKG)-autoloads.el --- automatically extracted autoloads
