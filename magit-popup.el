@@ -289,6 +289,9 @@ Don't confuse this with `magit-current-popup-args'.")
 
 (defvar-local magit-previous-popup nil)
 
+(defvar-local magit-pre-popup-buffer nil
+  "The buffer that was current before invoking the active popup.")
+
 (defun magit-popup-get (prop)
   "While a popup is active, get the value of PROP."
   (if (memq prop '(:switches :options :variables :actions))
@@ -348,6 +351,20 @@ or `:only' which doesn't change the behaviour."
                  (pop filter))
                (lambda (arg) (-contains-p filter arg)))
              magit-current-popup-args)))
+
+(defvar magit-current-pre-popup-buffer nil
+  "The buffer that was current before invoking the active popup.
+This is bound when invoking an action or variable.")
+
+(defmacro magit-with-pre-popup-buffer (&rest body)
+  "Execute the forms in BODY in the buffer that current before the popup.
+If `magit-current-pre-popup-buffer' is non-nil use that, else if
+`magit-pre-popup-buffer' is non-nil use that, otherwise (when no
+popup is involved) execute the forms in the current buffer."
+  (declare (indent 0))
+  `(--if-let (or magit-current-pre-popup-buffer magit-pre-popup-buffer)
+       (with-current-buffer it ,@body)
+     ,@body))
 
 (defun magit-popup-arg-match (pattern string)
   (if (or (string-match-p "=$" pattern)
@@ -838,6 +855,7 @@ TYPE is one of `:action', `:sequence-action', `:switch', or
     (cond ((or action variable)
            (let* ((magit-current-popup magit-this-popup)
                   (magit-current-popup-args (magit-popup-get-args))
+                  (magit-current-pre-popup-buffer magit-pre-popup-buffer)
                   (command (magit-popup-event-fun (or action variable)))
                   (magit-current-popup-action command))
              (when action
@@ -1102,11 +1120,13 @@ restored."
 (defun magit-popup-mode-setup (popup mode)
   (setq magit-previous-popup magit-current-popup)
   (let ((val (symbol-value (plist-get (symbol-value popup) :variable)))
-        (def (symbol-value popup)))
+        (def (symbol-value popup))
+        (buf (current-buffer)))
     (magit-popup-mode-display-buffer (get-buffer-create
                                       (format "*%s*" popup))
                                      (or mode 'magit-popup-mode))
     (setq magit-this-popup popup)
+    (setq magit-pre-popup-buffer buf)
     (if (bound-and-true-p magit-popup-setup-hook) ; obsolete
         (run-hook-with-args 'magit-popup-setup-hook val def)
       (funcall (or (magit-popup-get :setup-function)
