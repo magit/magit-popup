@@ -879,11 +879,16 @@ TYPE is one of `:action', `:sequence-action', `:switch', or
 
 (defun magit-popup-set-variable
     (variable choices &optional default other)
-  (magit-set (--if-let (magit-git-string "config" "--local" variable)
-                 (cadr (member it choices))
-               (car choices))
-             variable)
-  (magit-refresh)
+  (let* ((curval (lambda ()
+                   (or (magit-git-string "config" variable)
+                       default)))
+         (old (funcall curval)))
+    (magit-set (--if-let (magit-git-string "config" "--local" variable)
+                   (cadr (member it choices))
+                 (car choices))
+               variable)
+    (unless (equal old (funcall curval))
+      (magit-refresh)))
   (message "%s %s" variable
            (magit-popup-format-variable-1 variable choices default other)))
 
