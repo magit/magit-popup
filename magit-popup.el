@@ -1391,6 +1391,7 @@ variable whose value may be used as a default."
 
 (font-lock-add-keywords 'emacs-lisp-mode magit-popup-font-lock-keywords)
 
+;;; _
 (provide 'magit-popup)
 ;; Local Variables:
 ;; indent-tabs-mode: nil
