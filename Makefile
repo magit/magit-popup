@@ -38,8 +38,8 @@ help:
 	$(info make html         - generate html manual file)
 	$(info make html-dir     - generate html manual directory)
 	$(info make pdf          - generate pdf manual)
-	$(info make publish      - publish snapshot html and pdf manuals)
-	$(info make release      - publish release html and pdf manuals)
+	$(info make publish      - publish snapshot manuals)
+	$(info make release      - publish release manuals)
 	$(info make clean        - remove most generated files)
 	@printf "\n"
 
