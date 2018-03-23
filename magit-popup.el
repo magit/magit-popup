@@ -493,10 +493,13 @@ usually specified in that order):
   `SHORTNAME-arguments'.  This is usually done by calling the
   function `SHORTNAME-arguments'.
 
-  Members of VALUE may also be strings, assuming the first member
-  is also a string.  Instead of just one action section with the
-  heading \"Actions\", multiple sections are then inserted into
-  the popup buffer, using these strings as headings.
+  Members of VALUE may also be strings and functions, assuming
+  the first member is a string or function.  In that case the
+  members are split into sections and these special elements are
+  used as headings.  If such an element is a function then it is
+  called with no arguments and must return either a string, which
+  is used as the heading, or nil, in which case the section is
+  not inserted.
 
   Members of VALUE may also be nil.  This should only be used
   together with `:max-action-columns' and allows having gaps in
@@ -529,10 +532,26 @@ usually specified in that order):
   is a list whose members have the form (KEY DESC SWITCH), see
   `magit-define-popup-switch' for details.
 
+  Members of VALUE may also be strings and functions, assuming
+  the first member is a string or function.  In that case the
+  members are split into sections and these special elements are
+  used as headings.  If such an element is a function then it is
+  called with no arguments and must return either a string, which
+  is used as the heading, or nil, in which case the section is
+  not inserted.
+
 `:options'
   The popup arguments which take a value, as in \"--opt=OPTVAL\".
   VALUE is a list whose members have the form (KEY DESC OPTION
   READER), see `magit-define-popup-option' for details.
+
+  Members of VALUE may also be strings and functions, assuming
+  the first member is a string or function.  In that case the
+  members are split into sections and these special elements are
+  used as headings.  If such an element is a function then it is
+  called with no arguments and must return either a string, which
+  is used as the heading, or nil, in which case the section is
+  not inserted.
 
 `:default-arguments'
   The default arguments, a list of switches (which are then
@@ -544,6 +563,20 @@ usually specified in that order):
   Git variables which can be set from the popup.  VALUE is a list
   whose members have the form (KEY DESC COMMAND FORMATTER), see
   `magit-define-popup-variable' for details.
+
+  Members of VALUE may also be strings and functions, assuming
+  the first member is a string or function.  In that case the
+  members are split into sections and these special elements are
+  used as headings.  If such an element is a function then it is
+  called with no arguments and must return either a string, which
+  is used as the heading, or nil, in which case the section is
+  not inserted.
+
+  Members of VALUE may also be actions as described above for
+  `:actions'.
+
+  VALUE may also be a function that returns a list as describe
+  above.
 
 `:sequence-predicate'
   When this function returns non-nil, then the popup uses

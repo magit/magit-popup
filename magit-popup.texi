@@ -30,7 +30,7 @@ General Public License for more details.
 @finalout
 @titlepage
 @title Magit-Popup User Manual
-@subtitle for version 2.12.2
+@subtitle for version 2.12.2 (v2.12.2-6-gbd04ebd+1)
 @author Jonas Bernoulli
 @page
 @vskip 0pt plus 1filll
@@ -49,7 +49,7 @@ command that is associated with a specific set of infix arguments and
 suffix commands.
 
 @noindent
-This manual is for Magit-Popup version 2.12.2.
+This manual is for Magit-Popup version 2.12.2 (v2.12.2-6-gbd04ebd+1).
 
 @quotation
 Copyright (C) 2015-2018 Jonas Bernoulli <jonas@@bernoul.li>
@@ -603,10 +603,12 @@ else when invoked as the default action or directly without using
 the popup, the default value of the variable @code{SHORTNAME-arguments}.
 This is usually done by calling the function @code{SHORTNAME-arguments}.
 
-Members of VALUE may also be strings, assuming the first member is
-also a string.  Instead of just one action section with the
-heading \"Actions\", multiple sections are then inserted into the
-popup buffer, using these strings as headings.
+Members of VALUE may also be strings and functions, assuming the
+first member is a string or function.  In that case the members
+are split into sections and these special elements are used as
+headings.  If such an element is a function then it is called with
+no arguments and must return either a string, which is used as the
+heading, or nil, in which case the section is not inserted.
 
 Members of VALUE may also be nil.  This should only be used
 together with @code{:max-action-columns} and allows having gaps in the
@@ -650,6 +652,13 @@ The popup arguments which can be toggled on and off.  VALUE is a
 list whose members have the form @code{(KEY DESC SWITCH)}, see
 @code{magit-define-popup-switch} for details.
 
+Members of VALUE may also be strings and functions, assuming the
+first member is a string or function.  In that case the members
+are split into sections and these special elements are used as
+headings.  If such an element is a function then it is called with
+no arguments and must return either a string, which is used as the
+heading, or nil, in which case the section is not inserted.
+
 
 @item
 @code{:options}
@@ -657,6 +666,13 @@ list whose members have the form @code{(KEY DESC SWITCH)}, see
 The popup arguments which take a value, as in "--opt~OPTVAL".
 VALUE is a list whose members have the form @code{(KEY DESC OPTION
     READER)}, see @code{magit-define-popup-option} for details.
+
+Members of VALUE may also be strings and functions, assuming the
+first member is a string or function.  In that case the members
+are split into sections and these special elements are used as
+headings.  If such an element is a function then it is called with
+no arguments and must return either a string, which is used as the
+heading, or nil, in which case the section is not inserted.
 
 
 @item
@@ -673,6 +689,19 @@ by default) and options with there default values, as in
 Git variables which can be set from the popup.  VALUE is a list
 whose members have the form @code{(KEY DESC COMMAND FORMATTER)}, see
 @code{magit-define-popup-variable} for details.
+
+Members of VALUE may also be strings and functions, assuming the
+first member is a string or function.  In that case the members
+are split into sections and these special elements are used as
+headings.  If such an element is a function then it is called with
+no arguments and must return either a string, which is used as the
+heading, or nil, in which case the section is not inserted.
+
+Members of VALUE may also be actions as described above for
+@code{:actions}.
+
+VALUE may also be a function that returns a list as describe
+above.
 
 
 @item
