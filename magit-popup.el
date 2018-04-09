@@ -612,8 +612,9 @@ usually specified in that order):
        (defun ,name (&optional arg) ,doc
          (interactive "P")
          (magit-invoke-popup ',name ,mode arg))
-       (defvar ,name
-         (list :variable ',opt ,@args))
+       (unless (boundp ',name)
+         (defvar ,name))
+       (setq ,name (list :variable ',opt ,@args))
        (magit-define-popup-keys-deferred ',name)
        ,@(when opt
            `((defcustom ,opt (plist-get ,name :default-arguments)
