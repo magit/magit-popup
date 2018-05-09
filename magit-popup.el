@@ -1299,7 +1299,9 @@ of events shared by all popups and before point is adjusted.")
   (let* ((cmd (magit-popup-event-fun ev))
          (dsc (magit-popup-event-dsc ev))
          (fun (and (functionp dsc) dsc)))
-    (unless (and (symbolp cmd) (get cmd 'disabled))
+    (unless (and disabled-command-function
+                 (symbolp cmd)
+                 (get cmd 'disabled))
       (when fun
         (setq dsc
               (-when-let (branch (funcall fun))
