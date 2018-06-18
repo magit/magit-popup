@@ -17,7 +17,7 @@ later version.
 
 This document is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE@.  See the GNU
 General Public License for more details.
 @end quotation
 @end copying
@@ -30,7 +30,7 @@ General Public License for more details.
 @finalout
 @titlepage
 @title Magit-Popup User Manual
-@subtitle for version 2.12.2 (v2.12.2-6-gbd04ebd+1)
+@subtitle for version 2.12.3 (v2.12.3-3-g60ff82a+1)
 @author Jonas Bernoulli
 @page
 @vskip 0pt plus 1filll
@@ -49,7 +49,7 @@ command that is associated with a specific set of infix arguments and
 suffix commands.
 
 @noindent
-This manual is for Magit-Popup version 2.12.2 (v2.12.2-6-gbd04ebd+1).
+This manual is for Magit-Popup version 2.12.3 (v2.12.3-3-g60ff82a+1).
 
 @quotation
 Copyright (C) 2015-2018 Jonas Bernoulli <jonas@@bernoul.li>
@@ -61,7 +61,7 @@ later version.
 
 This document is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE@.  See the GNU
 General Public License for more details.
 @end quotation
 @end ifnottex
@@ -312,7 +312,7 @@ You can find some examples which use the below commands at
 
 @defun magit-define-popup-switch popup key desc switch &optional enable at prepend
 
-In POPUP, define KEY as SWITCH.
+In POPUP, define KEY as SWITCH@.
 
 POPUP is a popup command defined using @code{magit-define-popup}.  SWITCH
 is a string representing an argument that takes no value.  KEY is a
@@ -330,12 +330,12 @@ SWITCH is inserted after all other switches already defined for
 POPUP, unless optional PREPEND is non-nil, in which case it is
 placed first.  If optional AT is non-nil then it should be the KEY
 of another switch already defined for POPUP, the argument is then
-placed before or after AT, depending on PREPEND.
+placed before or after AT, depending on PREPEND@.
 @end defun
 
 @defun magit-define-popup-option popup key desc option &optional reader value at prepend
 
-In POPUP, define KEY as OPTION.
+In POPUP, define KEY as OPTION@.
 
 POPUP is a popup command defined using @code{magit-define-popup}.  OPTION
 is a string representing an argument that takes a value.  KEY is a
@@ -359,17 +359,17 @@ OPTION is inserted after all other options already defined for
 POPUP, unless optional PREPEND is non-nil, in which case it is
 placed first.  If optional AT is non-nil then it should be the KEY
 of another option already defined for POPUP, the argument is then
-placed before or after AT, depending on PREPEND.
+placed before or after AT, depending on PREPEND@.
 @end defun
 
 @defun magit-define-popup-action popup key desc command &optional at prepend
 
-In POPUP, define KEY as COMMAND.
+In POPUP, define KEY as COMMAND@.
 
 POPUP is a popup command defined using @code{magit-define-popup}.  COMMAND
 can be any command but should usually consume the popup arguments in
 its @code{interactive} form.  KEY is a character representing the event
-used invoke the action, i.e. to interactively call the COMMAND.
+used invoke the action, i.e. to interactively call the COMMAND@.
 
 DESC is a string describing the purpose of the action, it is
 displayed in the popup.
@@ -378,7 +378,7 @@ COMMAND is inserted after all other commands already defined for
 POPUP, unless optional PREPEND is non-nil, in which case it is
 placed first.  If optional AT is non-nil then it should be the KEY
 of another command already defined for POPUP, the command is then
-placed before or after AT, depending on PREPEND.
+placed before or after AT, depending on PREPEND@.
 @end defun
 
 @defun magit-define-popup-sequence-action popup key desc command &optional at prepend
@@ -389,7 +389,7 @@ Like @code{magit-define-popup-action}, but modifies the value of the
 
 @defun magit-define-popup-variable popup key desc command formatter &optional at prepend
 
-In POPUP, define KEY as COMMAND.
+In POPUP, define KEY as COMMAND@.
 
 POPUP is a popup command defined using @code{magit-define-popup}.  COMMAND
 is a command which calls @code{magit-popup-set-variable}.  FORMATTER is a
@@ -397,7 +397,7 @@ function which calls @code{magit-popup-format-variable}.  These two
 functions have to be called with the same arguments.
 
 KEY is a character representing the event used interactively call
-the COMMAND.
+the COMMAND@.
 
 DESC is the variable or a representation thereof.  It's not actually
 used for anything.
@@ -418,7 +418,7 @@ FROM, both are characters.
 
 @defun magit-remove-popup-key popup type key
 
-In POPUP, remove KEY's binding of TYPE.  POPUP is a popup command
+In POPUP, remove KEY's binding of TYPE@.  POPUP is a popup command
 defined using @code{magit-define-popup}.  TYPE is one of @code{:action},
 @code{:sequence-action}, @code{:switch}, or @code{:option}.  KEY is the character which
 is to be unbound.
@@ -548,7 +548,7 @@ commands have to be defined separately using plain @code{defun}.
 
 @defmac magit-define-popup name doc [group [mode [option]]] :keyword value@dots{}
 
-This macro defines a popup named NAME.  The NAME should begin with
+This macro defines a popup named NAME@.  The NAME should begin with
 the package prefix and by convention end with @code{-popup}, it is used
 as the name of the command which shows the popup and for an internal
 variable (whose value is used to store information about the popup
