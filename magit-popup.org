@@ -8,7 +8,7 @@
 #+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Magit-Popup: (magit-popup).
 #+TEXINFO_DIR_DESC: Infix arguments with feedback
-#+SUBTITLE: for version 2.12.3 (v2.12.3-3-g60ff82a+1)
+#+SUBTITLE: for version 2.12.3 (v2.12.3-4-ge2060cc+1)
 #+BIND: ox-texinfo+-before-export-hook ox-texinfo+-update-version-strings
 
 #+TEXINFO_DEFFN: t
@@ -20,7 +20,7 @@ command that is associated with a specific set of infix arguments and
 suffix commands.
 
 #+TEXINFO: @noindent
-This manual is for Magit-Popup version 2.12.3 (v2.12.3-3-g60ff82a+1).
+This manual is for Magit-Popup version 2.12.3 (v2.12.3-4-ge2060cc+1).
 
 #+BEGIN_QUOTE
 Copyright (C) 2015-2018 Jonas Bernoulli <jonas@bernoul.li>
@@ -562,7 +562,7 @@ commands have to be defined separately using plain ~defun~.
 
   - ~:variables~
 
-    Git variables which can be set from the popup.  VALUE is a list
+    Variables which can be set from the popup.  VALUE is a list
     whose members have the form ~(KEY DESC COMMAND FORMATTER)~, see
     ~magit-define-popup-variable~ for details.
 

@@ -554,7 +554,7 @@ usually specified in that order):
 
 `:variables'
 
-  Git variables which can be set from the popup.  VALUE is a list
+  Variables which can be set from the popup.  VALUE is a list
   whose members have the form (KEY DESC COMMAND FORMATTER), see
   `magit-define-popup-variable' for details.
 
