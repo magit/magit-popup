@@ -686,7 +686,7 @@ by default) and options with there default values, as in
 @item
 @code{:variables}
 
-Git variables which can be set from the popup.  VALUE is a list
+Variables which can be set from the popup.  VALUE is a list
 whose members have the form @code{(KEY DESC COMMAND FORMATTER)}, see
 @code{magit-define-popup-variable} for details.
 
