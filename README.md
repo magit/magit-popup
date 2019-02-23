@@ -1,16 +1,11 @@
 # Magit-Popup
 
 This package implements a generic interface for toggling switches
-and setting options and then invoking an Emacs command which does
-something with these arguments.  The prototypical use is for the
-command to call an external process, passing on the arguments as
-command line arguments.  But this is only one of many possible
-uses (though the one this library is optimized for).
+and setting options and then invoking an Emacs command that does
+something with these arguments.  Usually the command calls an
+external process with the specified arguments.
 
-Magit still used Magit-Popup but is going to be switch to a cleaner
-and more flexible implementation, once that has been written.  Even
-after that Magit-Popup will remain available and receive bug fixes,
-so that third-party packages can continue to use it.
+This package has been superseded by [Transient].  No new features
+will be added but bugs will be fixes.
 
-- [Magit-Popup User Manual](https://magit.vc/manual/magit-popup)
-- [Finally replace magit-popup with a more capable implementation](https://github.com/magit/magit/issues/2957)
+[Transient]: https://github.com/magit/transient

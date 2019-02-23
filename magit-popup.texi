@@ -31,7 +31,7 @@ General Public License for more details.
 @finalout
 @titlepage
 @title Magit-Popup User Manual
-@subtitle for version 2.12.5 (v2.12.5-1-gf5c10e2+1)
+@subtitle for version 2.13.0
 @author Jonas Bernoulli
 @page
 @vskip 0pt plus 1filll
@@ -44,13 +44,16 @@ General Public License for more details.
 @node Top
 @top Magit-Popup User Manual
 
-Taking inspiration from regular prefix commands and prefix arguments,
-this library implements a similar abstraction; a new kind of prefix
-command that is associated with a specific set of infix arguments and
-suffix commands.
+This package implements a generic interface for toggling switches
+and setting options and then invoking an Emacs command that does
+something with these arguments.  Usually the command calls an
+external process with the specified arguments.
+
+This package has been superseded by Transient (@ref{Top,,,transient,}).
+No new features will be added but bugs will be fixes.
 
 @noindent
-This manual is for Magit-Popup version 2.12.5 (v2.12.5-1-gf5c10e2+1).
+This manual is for Magit-Popup version 2.13.0.
 
 @quotation
 Copyright (C) 2015-2019 Jonas Bernoulli <jonas@@bernoul.li>
@@ -166,15 +169,8 @@ prefix----- argument2 --+-- suffix2
 @end example
 @end itemize
 
-This library was written as a replacement for @code{magit-key-mode}, which
-was used in Magit releases before 2.1.0.  It is used to implement all
-"popups" in the current Magit release but a future release will switch
-to yet another implementation.
-
-This library does not depend on any other Magit libraries and it is
-distributed as a separate package, which makes it possible to use it
-in packages that are not related to Magit.  But keep in mind that it
-will be deprecated eventually.
+This package has been superseded by Transient (@ref{Top,,,transient,}).  No
+new features will be added but bugs will be fixes.
 
 @node Usage
 @chapter Usage
