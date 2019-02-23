@@ -2,17 +2,18 @@
 :PREAMBLE:
 #+AUTHOR: Jonas Bernoulli
 #+EMAIL: jonas@bernoul.li
-#+DATE: 2015-2018
+#+DATE: 2015-2019
 #+LANGUAGE: en
 
 #+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Magit-Popup: (magit-popup).
 #+TEXINFO_DIR_DESC: Infix arguments with feedback
-#+SUBTITLE: for version 2.12.4 (v2.12.4+1)
-#+BIND: ox-texinfo+-before-export-hook ox-texinfo+-update-version-strings
+#+SUBTITLE: for version 2.12.5 (v2.12.5+1)
 
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:4 toc:2
+#+BIND: ox-texinfo+-before-export-hook ox-texinfo+-update-copyright-years
+#+BIND: ox-texinfo+-before-export-hook ox-texinfo+-update-version-strings
 
 Taking inspiration from regular prefix commands and prefix arguments,
 this library implements a similar abstraction; a new kind of prefix
@@ -20,10 +21,10 @@ command that is associated with a specific set of infix arguments and
 suffix commands.
 
 #+TEXINFO: @noindent
-This manual is for Magit-Popup version 2.12.4 (v2.12.4+1).
+This manual is for Magit-Popup version 2.12.5 (v2.12.5+1).
 
 #+BEGIN_QUOTE
-Copyright (C) 2015-2018 Jonas Bernoulli <jonas@bernoul.li>
+Copyright (C) 2015-2019 Jonas Bernoulli <jonas@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
@@ -669,7 +670,7 @@ Except when redefining the former, you should not use these directly.
 :END:
 
 #+BEGIN_QUOTE
-Copyright (C) 2015-2018 Jonas Bernoulli <jonas@bernoul.li>
+Copyright (C) 2015-2019 Jonas Bernoulli <jonas@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
