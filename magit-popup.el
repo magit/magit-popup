@@ -12,7 +12,7 @@
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Maintainer: Jonas Bernoulli <jonas@bernoul.li>
 
-;; Package-Requires: ((emacs "24.4") (async "1.9.2") (dash "2.13.0"))
+;; Package-Requires: ((emacs "24.4") (dash "2.13.0"))
 ;; Keywords: bindings
 ;; Homepage: https://github.com/magit/magit-popup
 
@@ -46,12 +46,6 @@
 (require 'dash)
 (require 'format-spec)
 (eval-when-compile (require 'subr-x))
-
-(and (require 'async-bytecomp nil t)
-     (cl-intersection '(all magit)
-                      (bound-and-true-p async-bytecomp-allowed-packages))
-     (fboundp 'async-bytecomp-package-mode)
-     (async-bytecomp-package-mode 1))
 
 (declare-function info 'info)
 (declare-function Man-find-section 'man)
