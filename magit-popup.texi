@@ -8,7 +8,7 @@
 
 @copying
 @quotation
-Copyright (C) 2015-2019 Jonas Bernoulli <jonas@@bernoul.li>
+Copyright (C) 2015-2020 Jonas Bernoulli <jonas@@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
@@ -31,7 +31,7 @@ General Public License for more details.
 @finalout
 @titlepage
 @title Magit-Popup User Manual
-@subtitle for version 2.13.1
+@subtitle for version 2.13.2
 @author Jonas Bernoulli
 @page
 @vskip 0pt plus 1filll
@@ -53,10 +53,10 @@ This package has been superseded by Transient (@ref{Top,,,transient,}).
 No new features will be added but bugs will be fixes.
 
 @noindent
-This manual is for Magit-Popup version 2.13.1.
+This manual is for Magit-Popup version 2.13.2.
 
 @quotation
-Copyright (C) 2015-2019 Jonas Bernoulli <jonas@@bernoul.li>
+Copyright (C) 2015-2020 Jonas Bernoulli <jonas@@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software

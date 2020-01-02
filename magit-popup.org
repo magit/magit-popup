@@ -2,13 +2,13 @@
 :PREAMBLE:
 #+AUTHOR: Jonas Bernoulli
 #+EMAIL: jonas@bernoul.li
-#+DATE: 2015-2019
+#+DATE: 2015-2020
 #+LANGUAGE: en
 
 #+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Magit-Popup: (magit-popup).
 #+TEXINFO_DIR_DESC: Infix arguments with feedback
-#+SUBTITLE: for version 2.13.1
+#+SUBTITLE: for version 2.13.2
 
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:4 toc:2
@@ -25,10 +25,10 @@ This package has been superseded by Transient ([[info:transient]]).
 No new features will be added but bugs will be fixes.
 
 #+TEXINFO: @noindent
-This manual is for Magit-Popup version 2.13.1.
+This manual is for Magit-Popup version 2.13.2.
 
 #+BEGIN_QUOTE
-Copyright (C) 2015-2019 Jonas Bernoulli <jonas@bernoul.li>
+Copyright (C) 2015-2020 Jonas Bernoulli <jonas@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
@@ -667,7 +667,7 @@ Except when redefining the former, you should not use these directly.
 :END:
 
 #+BEGIN_QUOTE
-Copyright (C) 2015-2019 Jonas Bernoulli <jonas@bernoul.li>
+Copyright (C) 2015-2020 Jonas Bernoulli <jonas@bernoul.li>
 
 You can redistribute this document and/or modify it under the terms
 of the GNU General Public License as published by the Free Software
