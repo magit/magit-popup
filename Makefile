@@ -38,8 +38,7 @@ help:
 	$(info make html         - generate html manual file)
 	$(info make html-dir     - generate html manual directory)
 	$(info make pdf          - generate pdf manual)
-	$(info make publish      - publish snapshot manuals)
-	$(info make release      - publish release manuals)
+	$(info make publish      - publish manual)
 	$(info make clean        - remove most generated files)
 	@printf "\n"
 
@@ -113,11 +112,9 @@ html-dir: $(PKG).texi
 
 DOMAIN         ?= magit.vc
 PUBLISH_PATH   ?= /manual/
-RELEASE_PATH   ?= /manual/$(VERSION)/
 
 S3_BUCKET      ?= s3://$(DOMAIN)
 PUBLISH_TARGET  = $(S3_BUCKET)$(PUBLISH_PATH)
-RELEASE_TARGET  = $(S3_BUCKET)$(RELEASE_PATH)
 
 CFRONT_DIST    ?= E2LUHBKU1FBV02
 CFRONT_PATHS    = $(PKG).html $(PKG).pdf $(PKG)/*
@@ -133,14 +130,6 @@ publish: html html-dir pdf
 	@printf "Generating CDN invalidation\n"
 	@aws cloudfront create-invalidation --distribution-id $(CFRONT_DIST) --paths \
 	"$(subst $(space),$(comma),$(addprefix $(PUBLISH_PATH),$(CFRONT_PATHS)))" > /dev/null
-
-release: html html-dir pdf
-	@aws s3 cp $(PKG).html $(RELEASE_TARGET)
-	@aws s3 cp $(PKG).pdf  $(RELEASE_TARGET)
-	@aws s3 sync --delete $(PKG) $(RELEASE_TARGET)$(PKG)/
-	@printf "Generating CDN invalidation\n"
-	@aws cloudfront create-invalidation --distribution-id $(CFRONT_DIST) --paths \
-	"$(subst $(space),$(comma),$(addprefix $(RELEASE_PATH),$(CFRONT_PATHS)))" > /dev/null
 
 CLEAN  = $(ELCS) $(PKG)-autoloads.el $(PKG).info dir
 CLEAN += $(PKG) $(PKG).html $(PKG).pdf
