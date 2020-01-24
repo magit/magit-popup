@@ -31,7 +31,7 @@ General Public License for more details.
 @finalout
 @titlepage
 @title Magit-Popup User Manual
-@subtitle for version 2.13.2
+@subtitle for version 2.13.2 (v2.13.2+1)
 @author Jonas Bernoulli
 @page
 @vskip 0pt plus 1filll
@@ -50,10 +50,10 @@ something with these arguments.  Usually the command calls an
 external process with the specified arguments.
 
 This package has been superseded by Transient (@ref{Top,,,transient,}).
-No new features will be added but bugs will be fixes.
+No new features will be added but bugs will be fixed.
 
 @noindent
-This manual is for Magit-Popup version 2.13.2.
+This manual is for Magit-Popup version 2.13.2 (v2.13.2+1).
 
 @quotation
 Copyright (C) 2015-2020 Jonas Bernoulli <jonas@@bernoul.li>
@@ -170,7 +170,7 @@ prefix----- argument2 --+-- suffix2
 @end itemize
 
 This package has been superseded by Transient (@ref{Top,,,transient,}).  No
-new features will be added but bugs will be fixes.
+new features will be added but bugs will be fixed.
 
 @node Usage
 @chapter Usage
@@ -616,7 +616,7 @@ heading, or nil, in which case the section is not inserted.
 
 Members of VALUE may also be nil.  This should only be used
 together with @code{:max-action-columns} and allows having gaps in the
-action grit, which can help arranging actions sensibly.
+action grid, which can help arranging actions sensibly.
 
 
 @item

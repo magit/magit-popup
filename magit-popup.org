@@ -8,7 +8,7 @@
 #+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Magit-Popup: (magit-popup).
 #+TEXINFO_DIR_DESC: Infix arguments with feedback
-#+SUBTITLE: for version 2.13.2
+#+SUBTITLE: for version 2.13.2 (v2.13.2+1)
 
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:4 toc:2
@@ -22,10 +22,10 @@ something with these arguments.  Usually the command calls an
 external process with the specified arguments.
 
 This package has been superseded by Transient ([[info:transient]]).
-No new features will be added but bugs will be fixes.
+No new features will be added but bugs will be fixed.
 
 #+TEXINFO: @noindent
-This manual is for Magit-Popup version 2.13.2.
+This manual is for Magit-Popup version 2.13.2 (v2.13.2+1).
 
 #+BEGIN_QUOTE
 Copyright (C) 2015-2020 Jonas Bernoulli <jonas@bernoul.li>
@@ -111,7 +111,7 @@ This should illustrate the most basic differences:
    #+END_EXAMPLE
 
 This package has been superseded by Transient ([[info:transient]]).  No
-new features will be added but bugs will be fixes.
+new features will be added but bugs will be fixed.
 
 * Usage
 ** _ :ignore:
@@ -506,7 +506,7 @@ commands have to be defined separately using plain ~defun~.
 
     Members of VALUE may also be nil.  This should only be used
     together with ~:max-action-columns~ and allows having gaps in the
-    action grit, which can help arranging actions sensibly.
+    action grid, which can help arranging actions sensibly.
 
   - ~:default-action~
 
